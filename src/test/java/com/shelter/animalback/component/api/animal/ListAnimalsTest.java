@@ -1,6 +1,7 @@
 package com.shelter.animalback.component.api.animal;
 
 import com.shelter.animalback.model.AnimalDao;
+
 import org.everit.json.schema.loader.SchemaLoader;
 import org.json.JSONArray;
 import org.json.JSONObject;
