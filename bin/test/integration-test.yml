@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${DB_HOST}/${TEST_DB}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: none
+    username: none
+    password: none
 
   sql:
     init:
