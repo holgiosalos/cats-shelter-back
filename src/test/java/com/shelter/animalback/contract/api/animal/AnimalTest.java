@@ -18,7 +18,8 @@ import au.com.dius.pact.provider.junitsupport.State;
 import com.shelter.animalback.domain.Animal;
 import org.mockito.Mockito;
 import java.util.ArrayList;
-import java.util.List;
+publish-contract
+import java.util.List;  
 
 @ExtendWith(MockitoExtension.class)
 @Provider("CatShelterBack")
@@ -38,6 +39,7 @@ public class AnimalTest {
         MockMvcTestTarget testTarget = new MockMvcTestTarget();
         testTarget.setControllers(animalController);
         context.setTarget(testTarget);
+        System.setProperty("pact.verifier.publishResults", "true");
     }
 
     @TestTemplate
