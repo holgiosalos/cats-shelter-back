@@ -1,6 +1,7 @@
 package com.shelter.animalback.contract.api.animal;
 
 import au.com.dius.pact.provider.junit5.PactVerificationContext;
+
 import au.com.dius.pact.provider.junit5.PactVerificationInvocationContextProvider;
 import au.com.dius.pact.provider.junitsupport.Provider;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
@@ -18,7 +19,6 @@ import au.com.dius.pact.provider.junitsupport.State;
 import com.shelter.animalback.domain.Animal;
 import org.mockito.Mockito;
 import java.util.ArrayList;
-publish-contract
 import java.util.List;  
 
 @ExtendWith(MockitoExtension.class)
