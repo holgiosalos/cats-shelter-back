@@ -18,6 +18,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import au.com.dius.pact.provider.junitsupport.State;
 import com.shelter.animalback.domain.Animal;
 import org.mockito.Mockito;
+
+import static org.hamcrest.CoreMatchers.any;
+
 import java.util.ArrayList;
 import java.util.List;  
 
@@ -59,4 +62,44 @@ public class AnimalTest {
         animals.add(animal);
         Mockito.when(animalService.getAll()).thenReturn(animals);
     }
+    
+    @State("there are no animals")
+    public void saveAnimals() {
+        Animal animal = new Animal();
+        animal.setName("Loli");
+        animal.setBreed("Birmano");
+        animal.setGender("Male");
+        animal.setVaccinated(true);
+        Mockito.when(animalService.save(Mockito.any(Animal.class))).thenReturn(animal);
+    }
+    @State("has animal to get")
+    public void getAnimal() {
+        Animal animal = new Animal();
+        animal.setName("Sanchito");
+        animal.setBreed("Shitzu");
+        animal.setGender("Male");
+        animal.setVaccinated(true);
+        Mockito.when(animalService.get(Mockito.any(String.class))).thenReturn(animal);
+    }
+    
+    @State("has animals to delete")
+    public void deleteAnimal() {
+        Animal animal = new Animal();
+        animal.setName("Sanchito");
+        animal.setBreed("Shitzu");
+        animal.setGender("Male");
+        animal.setVaccinated(true);
+        Mockito.doNothing().when(animalService).delete(Mockito.any(String.class));
+    }
+    @State("has animal to update")
+    public void updateAnimal() {
+        Animal animal = new Animal();
+        animal.setName("Sanchito");
+        animal.setBreed("Shitzu");
+        animal.setGender("Male");
+        animal.setVaccinated(true);
+
+        Mockito.when(animalService.replace(Mockito.any(String.class), Mockito.any(Animal.class))).thenReturn(animal);
+    }
+    
 }
