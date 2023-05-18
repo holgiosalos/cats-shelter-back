@@ -49,7 +49,7 @@ public class AnimalTest {
         context.verifyInteraction();
     }
 
-    @State("has animals")
+    @State("there are animals")
     public void listAnimals() {
         Animal animal = new Animal();
         animal.setName("Bigotes");
@@ -59,5 +59,40 @@ public class AnimalTest {
         List<Animal> animals = new ArrayList<Animal>();
         animals.add(animal);
         Mockito.when(animalService.getAll()).thenReturn(animals);
+    }
+
+    @State("there are animals for deletion")
+    public void deleteAnimal() {
+        Mockito.doNothing().when(animalService).delete(Mockito.any(String.class));
+    }
+
+    @State("there are animals to get")
+    public void getAnimal() {
+        Animal popeye = new Animal();
+        popeye.setName("Luna");
+        popeye.setBreed("Maine Coon");
+        popeye.setGender("Female");
+        popeye.setVaccinated(true);
+        Mockito.when(animalService.get(Mockito.any(String.class))).thenReturn(popeye);
+    }
+
+    @State("there are animals to update")
+    public void updateAnimal() {
+        Animal popeye = new Animal();
+        popeye.setName("Luna");
+        popeye.setBreed("Maine Coon");
+        popeye.setGender("Female");
+        popeye.setVaccinated(true);
+        Mockito.when(animalService.replace(Mockito.any(String.class), Mockito.any(Animal.class))).thenReturn(popeye);
+    }
+
+    @State("there are no animals")
+    public void registerAnimal() {
+        Animal popeye = new Animal();
+        popeye.setName("Luna");
+        popeye.setBreed("Maine Coon");
+        popeye.setGender("Female");
+        popeye.setVaccinated(true);
+        Mockito.when(animalService.save(Mockito.any(Animal.class))).thenReturn(popeye);
     }
 }
